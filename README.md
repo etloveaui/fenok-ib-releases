@@ -12,12 +12,20 @@ matches the signed size and SHA-256 digest.
 
 ## Current status
 
-The channel is being prepared. There is no stable manifest, release tag, or downloadable
-application yet. The first release will appear only after the native Windows build,
-privacy validation, self-check, signing, upload, and remote read-back gates pass.
+The stable update channel is active. This repository publishes update payloads only;
+initial portable installers are delivered directly by the operator and are not hosted
+here.
 
 Published contents are intentionally limited to:
 
-- immutable compiled ZIP assets attached to versioned releases;
+- immutable compiled application-update ZIP assets attached to stable releases;
 - a canonical stable manifest and its detached signature;
-- concise recipient-facing release notes.
+- concise release notes.
+
+An update payload is not a standalone installer. Installed clients download it through
+the packaged updater, verify its signature and SHA-256 digest, and activate it as a new
+immutable application version while keeping recipient configuration and operating data
+outside the updated version slot.
+
+Release asset download counts measure downloads of that update payload. They are not a
+unique-user or fresh-install count.
